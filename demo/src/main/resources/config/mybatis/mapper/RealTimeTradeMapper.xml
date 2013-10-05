@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jd.demo.dao.FastRealTimeDao">
+
+    <select id="queryDayTradeMoneyLimit" parameterType="java.util.Map" resultType="decimal">
+    	<![CDATA[
+           SELECT SUM(TRADE_AMOUNT) FROM RISK_LOG_PE_SUCCESS_TRADE
+            WHERE  TRAN_START_TIME >= #{tranStartTime1} 
+            AND TRAN_START_TIME <= #{tranStartTime2} 
+            AND BANK_CARD_NO=#{bankCardNo}
+         ]]>
+    </select>
+</mapper>
